@@ -2,6 +2,12 @@
 import React, { useState } from 'react';
 // Import component-specific styles
 import './App.css';
+<<<<<<< HEAD
+=======
+import Navbar from './navbar';
+import Courses from './courses';
+import Footer from './Footer';
+>>>>>>> 3c03ae2a1b0320ee44bc54baec4e8101a922e6a5
 
 function App() {
   // State to hold the tracking ID entered by the user
@@ -20,6 +26,7 @@ function App() {
   };
 
   return (
+<<<<<<< HEAD
     // Main application container
     <div className="app">
 
@@ -139,6 +146,12 @@ function App() {
       <footer>
         <p>&copy; {new Date().getFullYear()} Nexus Logistics. Advancing Global Trade.</p>
       </footer>
+=======
+    <div>
+      <Navbar />
+      <Courses />
+      <Footer />
+>>>>>>> 3c03ae2a1b0320ee44bc54baec4e8101a922e6a5
     </div>
   );
 }
