@@ -1,42 +1,369 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Main application wrapper */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+/* NAVBAR STYLES */
+/* Fixed navigation bar with glassmorphism effect */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(12px);
+  /* Creates the frosted glass effect */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Logo styling */
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: -0.5px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.logo span {
+  color: var(--accent);
+  font-weight: 400;
+}
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  color: var(--text-light);
+}
+
+/* Call-to-action button in navbar */
+.nav-action button {
+  background: var(--primary);
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.nav-action button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  /* Slight lift effect on hover */
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+/* HERO SECTION STYLES */
+/* Main landing area visible on load */
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 12rem 5% 6rem;
+  background: radial-gradient(circle at top center, #1e293b 0%, var(--bg-darker) 60%);
+  position: relative;
+}
+
+/* Decorative background gradients for hero */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.05), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(37, 99, 235, 0.05), transparent 25%);
+  pointer-events: none;
+  /* Allows clicking through the gradient overlay */
+}
+
+/* Small highlighted text above the main heading */
+.tagline {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* Main hero heading with gradient text */
+.hero h1 {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  max-width: 900px;
+  background: linear-gradient(135deg, #ffffff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Makes the gradient show through text */
+  letter-spacing: -1px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+/* TRACKING BOX WIDGET STYLES */
+/* Glassmorphism container for the tracking input */
+.tracking-box {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 0.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 10;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover/Focus effect for tracking box */
+.tracking-box:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(56, 189, 248, 0.3);
+}
+
+.tracking-box svg {
+  margin-left: 1rem;
+}
+
+.tracking-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 1rem;
+  color: var(--text-light);
+  font-size: 1.05rem;
+  outline: none;
+}
+
+.tracking-box input::placeholder {
+  color: #64748b;
+}
+
+.tracking-box button {
+  background: var(--primary);
+  color: white;
+  padding: 0 2rem;
+  height: 100%;
+  min-height: 50px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.tracking-box button:hover {
+  background: var(--primary-hover);
+}
+
+/* STATS SECTION STYLES */
+/* Container for the 3 key metrics */
+.stats {
+  display: flex;
+  gap: 4rem;
+  margin-top: 5rem;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-num {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-light);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* SERVICES SECTION STYLES */
+/* Grid layout for service offerings */
+.services {
+  padding: 8rem 5%;
+  background: var(--bg-dark);
+  position: relative;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 4rem;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  /* Responsive grid columns */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual service card styling */
+.service-card {
+  background: var(--bg-darker);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Card hover animation */
+.service-card:hover {
+  transform: translateY(-8px);
+  /* Elevate card on hover */
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Decorative top border gradient appearing on hover */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* Service icon container */
+.service-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(56, 189, 248, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+  background: var(--primary);
+  color: #fff;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.service-card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* FOOTER STYLES */
+footer {
+  text-align: center;
+  padding: 3rem 5%;
+  border-top: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  background: var(--bg-darker);
+}
+
+/* RESPONSIVE DESIGN (MOBILE FIXES) */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 3.5rem;
+    /* Smaller heading on mobile */
   }
-  to {
-    transform: rotate(360deg);
+
+  .nav-links {
+    display: none;
+    /* Hide navigation links on small screens */
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .stats {
+    flex-wrap: wrap;
+    gap: 2rem;
+    column-gap: 3rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  .stat-num {
+    font-size: 2.5rem;
+  }
 
-.read-the-docs {
-  color: #888;
+  .nav-action button {
+    padding: 0.5rem 1rem;
+  }
 }
