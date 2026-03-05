@@ -1,3 +1,62 @@
+<<<<<<< HEAD
+/* Import Google Font 'Inter' for modern typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Global CSS Variables for consistent theming */
+:root {
+  --primary: #2563eb;
+  /* Primary brand blue */
+  --primary-hover: #1d4ed8;
+  /* Darker blue for hover states */
+  --bg-dark: #0f172a;
+  /* Main background color */
+  --bg-darker: #020617;
+  /* Darker background for contrast sections */
+  --text-light: #f8fafc;
+  /* Primary text color */
+  --text-muted: #94a3b8;
+  /* Secondary text color */
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  /* Semi-transparent background for glassmorphism */
+  --glass-border: rgba(255, 255, 255, 0.1);
+  /* Subtle border for glass elements */
+  --accent: #38bdf8;
+  /* Accent color for highlights */
+}
+
+/* Reset default margins and paddings for all elements */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base body styling */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-darker);
+  color: var(--text-light);
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
+  -webkit-font-smoothing: antialiased;
+  /* Crisp font rendering on macOS */
+}
+
+/* Global link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Global button reset */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+=======
 body {
   margin: 0;
   padding: 0;
@@ -96,4 +155,5 @@ div>div:nth-child(2)>h1 {
 
 .footer p {
   margin: 0;
+>>>>>>> 3c03ae2a1b0320ee44bc54baec4e8101a922e6a5
 }
